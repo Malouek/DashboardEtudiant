@@ -38,7 +38,7 @@
         <?php endif; ?>
 
         <!-- Signup Form -->
-        <form class="login-form" id="signupForm" action="signup_process.php" method="POST">
+        <form class="login-form" id="signupForm" action="backend/php/signup_process.php" method="POST">
             <div class="form-group">
                 <label class="form-label" for="email">Email</label>
                 <input 

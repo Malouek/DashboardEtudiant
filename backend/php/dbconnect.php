@@ -4,7 +4,7 @@ class DBConnect
 
 
     private $host = 'localhost'; // Hôte de la base de données
-    private $dbname = 'study_dashboard'; // Nom de la base de données
+    private $dbname = 'dashboard'; // Nom de la base de données
     private $username = 'root'; // Nom d'utilisateur MySQL
     private $password = ''; // Mot de passe MySQL (vide par défaut sur WAMP)
     private $pdo;

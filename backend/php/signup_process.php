@@ -1,14 +1,19 @@
 <?php
 // signup_process.php
 session_start();
-require_once "db.php"; // fichier de connexion MySQL
+require_once "dbconnect.php"; // fichier de connexion MySQL
+
+// Récupérer la connexion PDO
+$db = new DBConnect();
+$pdo = $db->getConnexion();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Récupérer et nettoyer les données du formulaire
     $email = trim($_POST["email"]);
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
 
-    // Vérifications
+    // Vérifications côté serveur
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header("Location: signup.php?error=Email invalide");
         exit();
@@ -36,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Hasher le mot de passe
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    // Insérer l'utilisateur
-    $stmt = $pdo->prepare("INSERT INTO users (email, password, role) VALUES (?, ?, ?)");
+    // Insérer l'utilisateur avec la colonne correcte `password_hash`
+    $stmt = $pdo->prepare("INSERT INTO users (email, password_hash, role) VALUES (?, ?, ?)");
     $success = $stmt->execute([$email, $hashedPassword, "USER"]);
 
     if ($success) {
@@ -46,3 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: signup.php?error=Erreur lors de l'inscription");
     }
 }
+?>
