@@ -39,7 +39,21 @@
 
         <!-- Signup Form -->
         <form class="login-form" id="signupForm" action="backend/php/signup_process.php" method="POST">
-            <div class="form-group">
+            
+         <div class="form-group">
+                <label class="form-label" for="username">Nom d'utilisateur</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username"
+                    class="form-input" 
+                    placeholder="votre nom d'utilisateur"
+                    required
+                >
+            </div>
+        
+        
+        <div class="form-group">
                 <label class="form-label" for="email">Email</label>
                 <input 
                     type="email" 
