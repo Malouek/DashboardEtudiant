@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">DATA Dashboard</div>
+        <div class="header-actions">
+            <div class="search-container">
+                <svg class="icon search-icon" viewBox="0 0 24 24">
+                    <path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+                <input type="text" class="search-input" placeholder="Rechercher..." id="searchInput">
+            </div>
+            <button class="icon-btn">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+            </button>
+            <button class="icon-btn">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" data-section="dashboard">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9,22 9,12 15,12 15,22"/>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-section="courses">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            Cours
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-section="notes">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                            Fiches Notes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-section="software">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="14" x="2" y="3" rx="2"/>
+                                <line x1="8" x2="16" y1="21" y2="21"/>
+                                <line x1="12" x2="12" y1="17" y2="21"/>
+                            </svg>
+                            Logiciels
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-section="modules">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="7" height="7" x="3" y="3" rx="1"/>
+                                <rect width="7" height="7" x="14" y="3" rx="1"/>
+                                <rect width="7" height="7" x="14" y="14" rx="1"/>
+                                <rect width="7" height="7" x="3" y="14" rx="1"/>
+                            </svg>
+                            Modules
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="quick-actions">
+                <h3>Actions Rapides</h3>
+                <button class="add-btn">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                        <path d="M5 12h14"/>
+                        <path d="M12 5v14"/>
+                    </svg>
+                    Nouveau contenu
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div id="dashboard-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-label">Total Modules</div>
+                                <div class="stat-value">25</div>
+                            </div>
+                            <svg class="stat-icon icon-blue" viewBox="0 0 24 24">
+                                <rect width="7" height="7" x="3" y="3" rx="1"/>
+                                <rect width="7" height="7" x="14" y="3" rx="1"/>
+                                <rect width="7" height="7" x="14" y="14" rx="1"/>
+                                <rect width="7" height="7" x="3" y="14" rx="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-label">Cours</div>
+                                <div class="stat-value">12</div>
+                            </div>
+                            <svg class="stat-icon icon-green" viewBox="0 0 24 24">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-label">Notes</div>
+                                <div class="stat-value">48</div>
+                            </div>
+                            <svg class="stat-icon icon-purple" viewBox="0 0 24 24">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <div class="stat-label">Guides</div>
+                                <div class="stat-value">18</div>
+                            </div>
+                            <svg class="stat-icon icon-orange" viewBox="0 0 24 24">
+                                <rect width="20" height="14" x="2" y="3" rx="2"/>
+                                <line x1="8" x2="16" y1="21" y2="21"/>
+                                <line x1="12" x2="12" y1="17" y2="21"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modules Section -->
+                <div class="modules-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Modules Récents</h2>
+                        <button class="primary-btn">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5v14"/>
+                            </svg>
+                            Ajouter Module
+                        </button>
+                    </div>
+                    
+                    <div class="modules-grid">
+                        <div class="module-card">
+                            <div class="module-header">
+                                <div class="module-info">
+                                    <div class="module-icon">
+                                        <svg class="icon" viewBox="0 0 24 24">
+                                            <rect width="20" height="14" x="2" y="3" rx="2"/>
+                                            <line x1="8" x2="16" y1="21" y2="21"/>
+                                            <line x1="12" x2="12" y1="17" y2="21"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="module-title">Sécurité Web</div>
+                                        <div class="module-items">8 éléments</div>
+                                    </div>
+                                </div>
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </div>
+                            <div class="module-updated">Mis à jour il y a 2 jours</div>
+                        </div>
+                        
+                        <div class="module-card">
+                            <div class="module-header">
+                                <div class="module-info">
+                                    <div class="module-icon">
+                                        <svg class="icon" viewBox="0 0 24 24">
+                                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                            <polyline points="14,2 14,8 20,8"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="module-title">Notes Gobuster</div>
+                                        <div class="module-items">12 éléments</div>
+                                    </div>
+                                </div>
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </div>
+                            <div class="module-updated">Mis à jour il y a 1 jour</div>
+                        </div>
+                        
+                        <div class="module-card">
+                            <div class="module-header">
+                                <div class="module-info">
+                                    <div class="module-icon">
+                                        <svg class="icon" viewBox="0 0 24 24">
+                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="module-title">Guides Techniques</div>
+                                        <div class="module-items">5 éléments</div>
+                                    </div>
+                                </div>
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </div>
+                            <div class="module-updated">Mis à jour il y a 3 jours</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Activité Récente</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-info">
+                                <div class="activity-icon">
+                                    <svg class="icon icon-orange" viewBox="0 0 24 24">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                        <polyline points="14,2 14,8 20,8"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="activity-title">PPUF Command Setup</div>
+                                    <div class="activity-meta">PDF • Il y a 2h</div>
+                                </div>
+                            </div>
+                            <div class="activity-actions">
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" x2="12" y1="15" y2="3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-info">
+                                <div class="activity-icon">
+                                    <svg class="icon icon-green" viewBox="0 0 24 24">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="activity-title">Burp Suite Configuration</div>
+                                    <div class="activity-meta">Guide • Il y a 2j</div>
+                                </div>
+                            </div>
+                            <div class="activity-actions">
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" x2="12" y1="15" y2="3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other sections (hidden by default) -->
+            <div id="courses-content" class="hidden">
+                <div class="modules-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Section Cours</h2>
+                        <button class="primary-btn">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5v14"/>
+                            </svg>
+                            Nouveau Cours
+                        </button>
+                    </div>
+                    <p style="color: #666666; text-align: center; padding: 2rem;">
+                        Contenu de la section cours en cours de développement
+                    </p>
+                </div>
+            </div>
+
+            <div id="notes-content" class="hidden">
+                <div class="modules-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Fiches de Notes</h2>
+                        <button class="primary-btn">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5v14"/>
+                            </svg>
+                            Nouvelle Note
+                        </button>
+                    </div>
+                    <p style="color: #666666; text-align: center; padding: 2rem;">
+                        Contenu des fiches de notes en cours de développement
+                    </p>
+                </div>
+            </div>
+
+            <div id="software-content" class="hidden">
+                <div class="modules-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Guides Logiciels</h2>
+                        <button class="primary-btn">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5v14"/>
+                            </svg>
+                            Nouveau Guide
+                        </button>
+                    </div>
+                    <p style="color: #666666; text-align: center; padding: 2rem;">
+                        Contenu des guides logiciels en cours de développement
+                    </p>
+                </div>
+            </div>
+
+            <div id="modules-content" class="hidden">
+                <div class="modules-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Tous les Modules</h2>
+                        <button class="primary-btn">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5v14"/>
+                            </svg>
+                            Nouveau Module
+                        </button>
+                    </div>
+                    <p style="color: #666666; text-align: center; padding: 2rem;">
+                        Contenu de tous les modules en cours de développement
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" x2="12" y1="15" y2="3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-info">
+                                <div class="activity-icon">
+                                    <svg class="icon icon-red" viewBox="0 0 24 24">
+                                        <polygon points="5,3 19,12 5,21 5,3"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="activity-title">Gobuster Directory Scan</div>
+                                    <div class="activity-meta">Video • Il y a 4h</div>
+                                </div>
+                            </div>
+                            <div class="activity-actions">
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" x2="12" y1="15" y2="3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-info">
+                                <div class="activity-icon">
+                                    <svg class="icon icon-blue" viewBox="0 0 24 24">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                        <polyline points="14,2 14,8 20,8"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="activity-title">Web Enumeration Notes</div>
+                                    <div class="activity-meta">Note • Il y a 1j</div>
+                                </div>
+                            </div>
+                            <div class="activity-actions">
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0
